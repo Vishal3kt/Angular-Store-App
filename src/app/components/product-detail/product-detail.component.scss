@@ -1,0 +1,141 @@
+.product-detail-wrapper {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .product-info {
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    h3 {
+      font-size: 20px;
+      color: #007bff;
+    }
+
+    .btn-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+
+      .add-to-cart-btn {
+        background: #ff6600;
+        color: white;
+        border: none;
+        padding: 14px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background: #cc5200;
+          transform: scale(1.05);
+        }
+      }
+
+      .back-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        background-color: #f0f0f0;
+        color: #333;
+
+        &:hover {
+          background-color: #d6d6d6;
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+        }
+
+        mat-icon {
+          font-size: 20px;
+          margin-left: 5px;
+          margin-top: 6px;
+        }
+      }
+    }
+
+    .cart-message {
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+
+    img {
+      width: 80%;
+      max-width: 250px;
+    }
+
+    .btn-wrapper {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    img {
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .product-info {
+      h2 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      h3 {
+        font-size: 18px;
+      }
+
+      .btn-wrapper {
+        flex-direction: column;
+        gap: 12px;
+
+        .add-to-cart-btn,
+        .back-btn {
+          width: 100%;
+          font-size: 14px;
+          padding: 12px;
+        }
+      }
+    }
+  }
+}

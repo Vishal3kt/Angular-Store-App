@@ -1,0 +1,28 @@
+<div class="cart-wrapper">
+
+    <div class="btn-wrapper">
+        <h2 *ngIf="cartItems.length>9">Cart List : {{cartItems.length}}</h2>
+        <h2 *ngIf="cartItems.length<10">Cart List : 0{{cartItems.length}}</h2>
+
+        <button class="back-btn" routerLink="/">
+            Back <span><mat-icon>arrow_back</mat-icon></span>
+        </button>
+    </div>
+
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+        <div class="cart-item" *ngFor="let item of cartItems">
+            <img [src]="item.image" alt="{{ item.title }}" class="cart-img" />
+            <div class="cart-details">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.price | currency }}</p>
+            </div>
+            <button class="delete-btn" (click)="removeFromCart(item.id)">
+                <mat-icon style="color: red;">delete</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <ng-template #emptyCart>
+        <p>Your cart is empty 🛒</p>
+    </ng-template>
+</div>

@@ -1,0 +1,16 @@
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+
+  p {
+    margin: 0;
+  }
+}

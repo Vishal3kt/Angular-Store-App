@@ -1,0 +1,19 @@
+<div class="product-detail-wrapper" *ngIf="product">
+    <img [src]="product.image" alt="{{ product.title }}" />
+    <div class="product-info">
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <h3>${{ product.price }}</h3>
+
+        <div class="btn-wrapper">
+            <button class="add-to-cart-btn" (click)="addToCart(product)">
+                Add to Cart
+            </button>
+            <button class="back-btn" (click)="backToHome()">
+                Back <span><mat-icon>arrow_back</mat-icon></span>
+            </button>
+        </div>
+
+        <p class="cart-message" *ngIf="addedToCart">Added to Cart ✅</p>
+    </div>
+</div>

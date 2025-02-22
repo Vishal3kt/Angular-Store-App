@@ -1,0 +1,31 @@
+<div class="header-wrapper">
+    <div class="header">
+        <div class="logo" routerLink="/">
+            <img src="../../../assets/Angular-logo.svg.png" alt="Logo" />
+        </div>
+
+        <div class="search-bar">
+            <app-search></app-search>
+        </div>
+
+        <div class="actions">
+            <button mat-icon-button (click)="navigateToCart()">
+                <mat-icon>shopping_cart</mat-icon>
+                <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+            </button>
+
+            <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+
+            <mat-menu #profileMenu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>edit</mat-icon> Edit Profile
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>logout</mat-icon> Logout
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+</div>
