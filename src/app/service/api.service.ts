@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Product, Category } from './product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +11,19 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/products`);
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/products`);
   }
 
-  getCategories(): Observable<string[]> {
-    return this.http.get<string[]>(`${this.baseUrl}/products/categories`);
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.baseUrl}/products/categories`);
   }
 
-  getProductsByCategory(category: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/products/category/${category}`);
+  getProductsByCategory(category: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/products/category/${category}`);
   }
 
-  getProductById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/products/${id}`);
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/products/${id}`);
   }
 }

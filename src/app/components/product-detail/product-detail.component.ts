@@ -32,8 +32,15 @@ export class ProductDetailComponent {
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product);
-    this.showSnackbar('Added to Cart ✅');
+    const cartItems = this.cartService.getCartItems();
+    const existingItem = cartItems.find(item => item.id === product.id);
+
+    if (existingItem) {
+      this.showSnackbar('Already added to cart ❌');
+    } else {
+      this.cartService.addToCart(product);
+      this.showSnackbar('Added to Cart ✅');
+    }
   }
 
   showSnackbar(message: string) {

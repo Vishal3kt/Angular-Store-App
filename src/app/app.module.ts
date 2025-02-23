@@ -22,7 +22,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SearchComponent } from './components/search/search.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 
@@ -52,7 +51,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatRadioModule,
     MatSnackBarModule,
     MatMenuModule
   ],
