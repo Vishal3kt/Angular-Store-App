@@ -1,17 +1,13 @@
 <div class="home-wrapper">
     <h2>All Categories</h2>
 
-    <div *ngIf="loadingCategories" class="loader">
-        <mat-spinner></mat-spinner>
-    </div>
-
     <div *ngIf="!loadingCategories" class="categories">
         <button *ngFor="let category of categories" class="category-btn" (click)="selectCategory(category)">
             {{ category | titlecase }}
         </button>
     </div>
 
-    <div *ngIf="loadingProducts" class="loader">
+    <div *ngIf="loadingCategories || loadingProducts" class="loader">
         <mat-spinner></mat-spinner>
     </div>
 

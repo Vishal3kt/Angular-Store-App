@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   filteredProducts: any[] = [];
   loadingProducts = false;
   loadingCategories = true;
-  searchPerformed = false; // Track if a search was performed
+  searchPerformed = false;
 
   constructor(
     private apiService: ApiService,
@@ -24,13 +24,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCategories();
+    this.loadAllProducts();
+
     this.searchService.searchQuery$.subscribe(query => {
       if (query) {
         this.searchPerformed = true;
         this.filterProducts(query);
       } else {
         this.searchPerformed = false;
-        this.filteredProducts = [...this.products]; // Reset to category products
+        this.filteredProducts = [...this.products];
       }
     });
   }
@@ -48,14 +50,29 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  loadAllProducts() {
+    this.loadingProducts = true;
+    this.apiService.getAllProducts().subscribe(
+      (products) => {
+        this.products = products;
+        this.filteredProducts = [...products];
+        this.loadingProducts = false;
+      },
+      (error) => {
+        console.error('Error fetching products:', error);
+        this.loadingProducts = false;
+      }
+    );
+  }
+
   selectCategory(category: string) {
     this.loadingProducts = true;
-    this.searchPerformed = false; // Reset search flag when selecting category
+    this.searchPerformed = false;
 
     this.apiService.getProductsByCategory(category).subscribe(
       (products) => {
         this.products = products;
-        this.filteredProducts = products; // Show products by category
+        this.filteredProducts = products;
         this.loadingProducts = false;
       },
       (error) => {

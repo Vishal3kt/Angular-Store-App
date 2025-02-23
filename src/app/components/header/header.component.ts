@@ -21,7 +21,6 @@ export class HeaderComponent {
 
     this.searchService.searchQuery$.subscribe(query => {
       this.searchQuery = query;
-      console.log('Search Query from Header:', query);
     });
   }
 

@@ -22,10 +22,11 @@
   }
 
   .search-bar {
-    display: flex;
+    display: table-row-group;
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 400px;
   }
 
   .actions {
@@ -60,6 +61,7 @@
   .header {
     align-items: center;
     padding: 10px;
+    overflow: hidden;
 
     .logo img {
       height: 50px;
@@ -67,11 +69,10 @@
 
     .search-bar {
       width: 100%;
-      margin-top: 8px;
     }
 
     .actions {
-      gap: 8px;
+      gap: 6px;
       margin-top: 8px;
 
       button {
